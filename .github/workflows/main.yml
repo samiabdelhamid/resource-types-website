@@ -12,7 +12,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v1
 
-    - name: build
+    - name: build APP
       run: |
         cd warehouse/web
         yarn install && yarn build
