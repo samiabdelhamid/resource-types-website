@@ -12,7 +12,5 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v1
     - name: build
-      run: cd warehouse/web
-      run: yarn install && yarn build
-      run: cd ..
-      run: go run ./main.go
+      run: docker build -t dutyfree
+      run: docker run dutyfree -p 9090:9090
