@@ -15,7 +15,7 @@ jobs:
     - name: build
       uses: actions/checkout@v1
       run: |
-        cd warehouse/web
-	yarn install && yarn build
-	cd ..
-	go run ./main.go
+       cd warehouse/web
+       yarn install && yarn build
+       cd ..
+       go run ./main.go
