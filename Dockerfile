@@ -18,7 +18,7 @@ RUN yarn install && yarn build
 WORKDIR /src/warehouse
 ENV CGO_ENABLED 0
 RUN go get -d ./...
-RUN go build -o dutyfree ./main.go
+RUN go build -o ./main.go
 
 FROM ubuntu:bionic AS dutyfree
 EXPOSE 9090
