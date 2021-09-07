@@ -20,8 +20,6 @@ jobs:
         go run ./main.go
     - name: Test Backend APP
       run: |
-        cd warehouse
-	go get -u github.com/onsi/ginkgo/ginkgo
-	ginkgo -r -keepGoing .
+        cd warehouse && go get -u github.com/onsi/ginkgo/ginkgo && ginkgo -r -keepGoing .
     - name: Test Front End APP
       run: cd warehouse && yarn install && yarn test
