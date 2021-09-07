@@ -16,7 +16,6 @@ jobs:
         cd warehouse/web
         yarn install && yarn build
         cd ..
-        sudo snap install --classic --channel=1.15/stable go
         go run ./main.go
     - name: Test Backend APP
       run: |
