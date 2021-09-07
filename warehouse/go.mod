@@ -1,6 +1,6 @@
 module github.com/concourse/dutyfree
 
-go 1.16
+go 1.15
 
 require (
 	github.com/NYTimes/gziphandler v1.1.1
@@ -13,5 +13,4 @@ require (
 	golang.org/x/oauth2 v0.0.0-20200107190931-bf48bf16ab8d
 	gopkg.in/check.v1 v1.0.0-20190902080502-41f04d3bba15 // indirect
 	gopkg.in/yaml.v2 v2.3.0
-	github.com/spf13/viper v1.8.1
 )
