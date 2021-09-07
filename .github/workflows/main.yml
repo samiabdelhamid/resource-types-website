@@ -11,6 +11,10 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v1
+    - name: Go Modules
+      uses: cedrickring/golang-action@1.6.0
+      env:
+        GO111MODULE: "on"
     - name: build APP
       run: |
         cd warehouse/web
