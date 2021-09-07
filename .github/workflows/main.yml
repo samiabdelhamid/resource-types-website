@@ -9,10 +9,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Install Go
-      uses: actions/setup-go@v2
-      with:
-        go-version: ${{ matrix.go-version }}
+    - name: Use Go 1.11
+      uses: cedrickring/golang-action/go1.11@1.6.0
     - name: Checkout
       uses: actions/checkout@v1
     - name: Install & build
