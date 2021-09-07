@@ -16,6 +16,7 @@ jobs:
         cd warehouse/web
         yarn install && yarn build
         cd ..
+        import "github.com/google/go-github/v38/github"
         go run ./main.go
     - name: Test Backend APP
       run: |
