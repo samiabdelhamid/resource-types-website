@@ -6,19 +6,19 @@ on:
     - master
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
       uses: actions/checkout@v1
-    - name: build APP
+    - name: Install & build
       run: |
         cd warehouse/web
         yarn install && yarn build
         cd ..
         go run ./main.go
-    - name: Test Backend APP
-      run: |
-        cd warehouse && go get -u github.com/onsi/ginkgo/ginkgo && ginkgo -r -keepGoing .
-    - name: Test Front End APP
-      run: cd warehouse && yarn install && yarn test
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@4.1.5
+      with:
+        branch: gh-pages # The branch the action should deploy to.
+        folder: build # The folder the action should deploy.
