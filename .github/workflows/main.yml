@@ -14,7 +14,7 @@ jobs:
     - name: Setup go
       uses: actions/setup-go@v2
       with:
-        go-version: '1.16'
+        go-version: '1.17'
     - run: |
         cd warehouse/web
         yarn install && yarn build
