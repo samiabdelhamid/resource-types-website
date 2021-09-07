@@ -1,6 +1,6 @@
 module github.com/concourse/dutyfree
 
-go 1.15
+go 1.17
 
 require (
 	github.com/NYTimes/gziphandler v1.1.1
