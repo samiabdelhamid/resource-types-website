@@ -3,29 +3,26 @@ name: Static Website
 on:
   push:
     branches:
-      - 'master'
+    - master
 
 jobs:
-  docker:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      
-      - name: Set up Docker Buildx
-        id: buildx
-        uses: docker/setup-buildx-action@v1
-        
-      - name: Login to DockerHub
-        uses: docker/login-action@v1
-        with:
-          username: ${{ secrets.DOCKER_HUB_USERNAME }}
-          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-          
-      - name: Build and push
-        uses: docker/build-push-action@v2.7.0
-        with:
-          context: ./
-          file: ./Dockerfile
-          push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/app:latest
+    - name: Checkout
+      uses: actions/checkout@v1
+    - name: build APP
+      uses: cedrickring/golang-action@1.6.0
+      run: |
+        cd warehouse/web
+        yarn install && yarn build
+        cd ..
+        sudo snap install --classic --channel=1.15/stable go
+        go run ./main.go
+    - name: Test Backend APP
+      run: |
+        cd warehouse
+		go get -u github.com/onsi/ginkgo/ginkgo
+		ginkgo -r -keepGoing .
+	- name: Test Front End APP
+      run: cd warehouse && yarn install && yarn test
