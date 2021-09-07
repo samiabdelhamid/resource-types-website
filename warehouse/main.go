@@ -35,7 +35,7 @@ func main() {
 
 	port, err := strconv.Atoi(os.Getenv("PORT"))
 	if err != nil || port == 0 {
-		port = 7070
+		port = 9090
 	}
 
 	token := os.Getenv("GH_TOKEN")
