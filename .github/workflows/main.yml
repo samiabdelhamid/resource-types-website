@@ -11,13 +11,6 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2.3.4
-    - name: install golang
-      uses: ibrt/golang-github-action@v1
-      with:
-        go-version: 1.16
-        go-packages: |
-          golang.org/x/lint/golint
-          golang.org/x/tools/cmd/goimports@v0.1.0
     - name: Setup go
       uses: actions/setup-go@v2
       with:
