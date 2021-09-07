@@ -16,7 +16,6 @@ jobs:
         cd warehouse/web
         yarn install && yarn build
         cd ..
-        go mod init resource-types-website
         go run ./main.go
     - name: Test Backend APP
       run: |
