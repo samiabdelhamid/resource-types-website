@@ -12,7 +12,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v1
     - name: build APP
-      uses: cedrickring/golang-action@1.6.0
       run: |
         cd warehouse/web
         yarn install && yarn build
