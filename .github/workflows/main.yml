@@ -11,7 +11,6 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v1
-
     - name: build APP
       run: |
         cd warehouse/web
