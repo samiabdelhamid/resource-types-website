@@ -16,7 +16,7 @@ jobs:
          node-version: '16'
       
     - run: cd warehouse/web && yarn install
-        
+    - run: yarn run lint
     - run: cd warehouse/web && yarn build
     - run: cd warehouse && go run ./main.go
       
