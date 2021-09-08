@@ -3,7 +3,6 @@ package main
 import (
 	"embed"
 	"fmt"
-	"strings"
 	"io/fs"
 	"os"
 	"strconv"
