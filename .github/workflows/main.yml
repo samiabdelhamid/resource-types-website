@@ -17,13 +17,12 @@ jobs:
       
     - run: |
         cd warehouse/web
-        yarn install
+        yarn install && yarn build
         
     - name: Run Lint
       run: yarn run lint
       
     - run: |
-        yarn build
         cd ..
         go run ./main.go
       
