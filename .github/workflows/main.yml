@@ -17,7 +17,6 @@ jobs:
       
     - run: cd warehouse/web && yarn install
     - run: cd warehouse/web && yarn build
-    - run: install.packages "embed"
     - run: cd warehouse && go run ./main.go
       
     - run: |
