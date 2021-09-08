@@ -1,24 +1,24 @@
-name: Static Website
+name: GO APP
 
 on:
   push:
     branches:
-    - master
+    - "master"
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2.3.4
-    - name: Setup go
-      uses: actions/setup-go@v2
-      with:
-        go-version: '1.16'
+    - uses: actions/checkout@v1
     - run: |
         cd warehouse/web
         yarn install && yarn build
         cd ..
         go run ./main.go
-    
-    
+    - run: |
+        cd warehouse
+        go get -u github.com/onsi/ginkgo/ginkgo
+        ginkgo -r -keepGoing .
+    - run: |
+        cd warehouse && yarn install && yarn test
