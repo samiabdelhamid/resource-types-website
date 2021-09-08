@@ -17,7 +17,7 @@ jobs:
       
     - run: cd warehouse/web && yarn install
         
-    - run: cd warehouse && yarn build
+    - run: cd warehouse/web && yarn build
     - run: cd .. && go run ./main.go
       
     - run: |
